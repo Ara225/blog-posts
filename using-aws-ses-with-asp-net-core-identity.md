@@ -7,8 +7,9 @@ The custom email sender needs to implement IEmailSender, which only has one meth
 services.AddTransient<IEmailSender, SESEmailSender>();
 ```
 
+You'll also need to follow the steps in <a href="https://docs.microsoft.com/en-gb/aspnet/core/security/authentication/accconfirm?view=aspnetcore-5.0&tabs=visual-studio">this Microsoft article </a> from Scaffold RegisterConfirmation on.
 
- #### Custom Email Sender implementation
+#### Custom Email Sender implementation
 ```csharp
 using Amazon;
 using Amazon.SimpleEmail;
