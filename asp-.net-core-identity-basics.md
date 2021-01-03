@@ -1,0 +1,4 @@
+ASP .NET Core Identity is the user login solution for ASP .NET Core. It's involved in practically every user login solution, with even other user login packages and external login provider libraries using features from it. I personally really like it for its extensibility and sensible defaults, however it is quite difficult to setup and understand. I would know - I've spent a lot of time trying to make it work for me. I've learned a lot from the experience though, and I wanted to share some of this newfound knowledge.
+
+# Overview
+The result of bootstraping an ASP .NET Core app with user login, is somewhat deceptive: it just works out of the box. However, if you look closer, you'll start to 
