@@ -1,0 +1,15 @@
+The result of bootstraping an ASP .NET Core app with user login is somewhat deceptive: it just works out of the box. In practice, however, ASP .NET Core Identity - the default user login solution for ASP .NET Core is quite complex/difficult to setup for production use cases, as I've found out recently. 
+
+You don't have to do this - Auth0 and others make solutions that cut out much of the work, but if you need or want to, this high level overview of the process with handy links may be useful to you. I'm going to assume that you have a bootstraped ASP .NET Core app with user authentication (individual user accounts stored in app).
+
+# User Storage
+ASP .NET Core Identity allows user storage providers to be swapped out, so that you can store your users anywhere. The bootstraped app is setup to use a local database on disk. It's fairly easy to swap over to a proper MS SQL server using Entity Framework by changing the connection string in the configuration file, however for anything else, you'll need to fall back on community maintained user stores or write your own. Microsoft does have a <a href="https://github.com/dotnet/AspNetCore/tree/master/src/Identity">handy list of these storage providers</a> though and a couple of decent pieces of documentation.
+
+# OAuth Providers
+It's fairly simple to add an OAuth provider if you need to. Microsoft provides support out of the box for four (Microsoft, Google, Twitter, Facebook), and provide <a href="https://docs.microsoft.com/en-us/aspnet/core/security/authentication/social/?view=aspnetcore-5.0&tabs=visual-studio">a nice guide</a>. Aside from this, you can implement your own integration or use a prebuilt integration <a href="https://github.com/aspnet-contrib/AspNet.Security.OAuth.Providers">this repo has a really nice selection.</a> The buttons to authenticate with the provider(s) will appear on the login page automatically.
+
+# UI
+The UI Microsoft provides works, but it's not pretty. Luckily, it's fairly easy to customize, as it's provided as a Razor Pages library. You can access the code by scaffolding it into your project (<a href="https://docs.microsoft.com/en-us/aspnet/core/security/authentication/scaffold-identity?view=aspnetcore-5.0&tabs=visual-studio">see this Microsoft doc</a>). You'll probably want to customize the 2fa section of the app to display a QR code for users to scan (<a href="https://docs.microsoft.com/en-us/aspnet/core/security/authentication/identity-enable-qrcodes?view=aspnetcore-5.0">see this MS doc</a>)
+
+# Email
+You will need to add a real email sender to your app to send confirmation emails (assuming you want to use them). Microsoft provides <a href="https://docs.microsoft.com/en-us/aspnet/core/security/authentication/accconfirm?view=aspnetcore-5.0&tabs=visual-studio">a tutorial for using SendGrid with this</a> and I wrote <a href="https://dev.to/ara225/how-to-use-aws-ses-as-a-custom-email-sender-in-asp-net-core-identity-40a3">one for AWS SES.</a> No matter which provider you're using, it's a fairly simple process.
