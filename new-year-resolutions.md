@@ -1,1 +1,0 @@
-2020 was a big year for me. I programmed as a child, and I've tinkered with code intermittently ever since but I feel like 2020 was the year I really learnt to code. My early experiences with programming were in a strange language 
