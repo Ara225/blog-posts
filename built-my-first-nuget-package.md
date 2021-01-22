@@ -1,0 +1,6 @@
+Yesterday, I pushed <a href="https://www.nuget.org/packages/ara225.DynamoDBUserStore/">ara225.DynamoDBUserStore</a> my first ever NuGet package. Basically, it's a wrapper around DynamoDB functions which allows ASP NET Core Identity to store user account details and role information in AWS DynamoDB (otherwise known as a custom user & role store for ASP .NET Core).
+It's not glamorous or perfect, but it is somewhat complex and as well engineered and tested as I can make it, so I'm rather proud of it on a technical level. 
+
+It's also a fairly large achievement on a personal level. I used to be scared of more complex langues (namely C. C++, Java, and C#) because I tried and failed to learn C++ as a kid (and promptly gave up programing as a result). But, frankly that was about a decade ago, and I didn't have proper resources or know any developers so it's been an irrational fear for a long time. 
+
+Anyway, three months ago, I decided to throw myself in the deep end with C# by building a ASP .NET core app. I couldn't think of anything good to make, so I made a basic CRUD app (posing as a project management app) with authentication and made some unusual requirements (store everything in DynamoDB being the core one). I ended up making my own user store which became this thing.
