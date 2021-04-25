@@ -1,4 +1,4 @@
-One of the disadvantages of Bootstrap is that it depends on jQuery for some functions such as modals. If all you want is a simple modal and have no other use for jQuery, this can add about 30kb of JavaScript you don't actually need to your page. However, it's not too difficult to work around - in fact, it requires less than 20 lines of JS. The full code is <a href="https://gist.github.com/Ara225/20be0545c1c578ac16af5f016e13323c">here</a>
+One of the disadvantages of Bootstrap is that it depends on jQuery (at least up ) and it's own Bootstrap JS files for some functions such as modals. If all you want is a simple modal and have no other use for the JS, this can add a good few unnecessary kilobytes of JavaScript you don't actually need to your page. However, it's not too difficult to work around - in fact, it requires less than 20 lines of JS. The full code is <a href="https://github.com/Ara225/mini-frontend-projects/blob/master/2-bootstrap-modal-without-jQuery/bootstrap-modal-without-jQuery.html">here</a>
 
 We use the same HTML as the normal Bootstrap modals, except with the extra attributes being replaced by click handlers, and an extra div (backdrop) which displays the grey background.
 ```html
@@ -33,20 +33,20 @@ The JavaScript simply alters the backdrop and modal display when required, as we
 function openModal() {
     document.getElementById("backdrop").style.display = "block"
     document.getElementById("exampleModal").style.display = "block"
-    document.getElementById("exampleModal").className += "show"
+    document.getElementById("exampleModal").classList.add("show")
 }
 function closeModal() {
     document.getElementById("backdrop").style.display = "none"
     document.getElementById("exampleModal").style.display = "none"
-    document.getElementById("exampleModal").className += document.getElementById("exampleModal").className.replace("show", "")
+    document.getElementById("exampleModal").classList.remove("show")
 }
 // Get the modal
 var modal = document.getElementById('exampleModal');
 
 // When the user clicks anywhere outside of the modal, close it
-window.onclick = function (event) {
-    if (event.target == modal) {
-        closeModal()
-    }
+window.onclick = function(event) {
+  if (event.target == modal) {
+    closeModal()
+  }
 }
 ```
